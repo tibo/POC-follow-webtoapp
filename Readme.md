@@ -12,7 +12,8 @@ next idea : use a temporary token for the web to app communication and use this 
 # About
 
 Live version on heroku : [http://follow-web-to-app.herokuapp.com/](http://follow-web-to-app.herokuapp.com/)
-a simple iOS client is available on this repo : (ios-client)[ios-client]
+
+Ωa simple iOS client is available on this repo : (ios-client)[ios-client]
 
 ## Proof of concept
 

@@ -1,5 +1,5 @@
 import os, md5
-from flask import Flask, session, redirect, url_for, request
+from flask import Flask, session, redirect, url_for, request, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ class User(db.Model):
 @app.route("/")
 def index():
 	if 'login' in session:
-		return 'hello %s <br /> <a href="/logout">Logout</a>' % session['login']
+		return render_template('index.html', login=session['login'])
 	return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -34,14 +34,7 @@ def login():
 
         return redirect(url_for('login'))
 
-    return '''
-        <form action="" method="post">
-            <p>Login: <input type="text" name="login" /></p>
-            <p>Password: <input type="password" name="password" /></p>
-            <p><input type="submit" value="Login" /></p>
-        </form>
-        No Account? <a href="/signup">Sign Up</a>
-        '''
+    return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -51,14 +44,7 @@ def signup():
         db.session.commit()
         session['login'] = user.login
         return redirect(url_for('index'))
-    return '''
-    	New account
-        <form action="" method="post">
-            <p>Login: <input type="text" name="login" /></p>
-            <p>Password: <input type="password" name="password" /></p>
-            <p><input type="submit" value="Signup" /></p>
-        </form>
-        '''
+    return render_template('signup.html')
 
 @app.route('/logout')
 def logout():
