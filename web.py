@@ -2,7 +2,7 @@ import os, md5
 from flask import Flask, session, redirect, url_for, request, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 db = SQLAlchemy(app)
