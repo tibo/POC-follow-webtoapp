@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SessionManager.h"
+#import "APIClient.h"
 
 @interface ViewController ()
 
@@ -20,7 +21,7 @@
 #pragma mark - birth and death
 - (void)dealloc
 {
-    [[SessionManager sharedSession] removeObserver:self forKeyPath:@"login"];
+    [[SessionManager sharedSession] removeObserver:self forKeyPath:@"followKey"];
 }
 
 #pragma mark - view lifecycle
@@ -28,9 +29,11 @@
 {
     [super viewDidLoad];
     
-    [[SessionManager sharedSession] addObserver:self forKeyPath:@"login" options:NSKeyValueObservingOptionNew context:nil];
+    [[SessionManager sharedSession] addObserver:self forKeyPath:@"followKey" options:NSKeyValueObservingOptionNew context:nil];
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://follow-web-to-app.herokuapp.com/redirectToApp"]];
+    NSURL *redirectURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/redirectToApp", SERVER_API_URL]];
+    
+    [[UIApplication sharedApplication] openURL:redirectURL];
 }
 
 
@@ -39,7 +42,27 @@
 {
     if ([object isEqual:[SessionManager sharedSession]])
     {
-        self.helloLabel.text = [NSString stringWithFormat:@"Hello\n%@",[SessionManager sharedSession].login];
+        [APIClient getSessionForFollowKey:[SessionManager sharedSession].followKey
+                             withCallback:^(NSDictionary *session, NSError *error) {
+                                 
+                                 if (error)
+                                 {
+                                     NSLog(@"Error : %@",error);
+                                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                     message:@"Session follow failed"
+                                                                                    delegate:nil
+                                                                           cancelButtonTitle:@"OK"
+                                                                           otherButtonTitles:nil];
+                                     [alert show];
+                                 }
+                                 else
+                                 {
+                                     [SessionManager sharedSession].login = [session objectForKey:@"login"];
+                                     self.helloLabel.text = [NSString stringWithFormat:@"Hello\n%@",[SessionManager sharedSession].login];
+                                 }
+                                 
+                                 
+                             }];
     }
 }
 

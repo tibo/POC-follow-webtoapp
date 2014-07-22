@@ -52,12 +52,9 @@
     
     NSArray *components = [url urlComponentsForScheme:@"followapp://"];
     
-    if ([components count] == 2)
+    if ([components count] > 0)
     {
-        if ([[components firstObject] isEqualToString:@"login"])
-        {
-            [[SessionManager sharedSession] setLogin:[components objectAtIndex:1]];
-        }
+        [[SessionManager sharedSession] setFollowKey:[components firstObject]];
     }
     
     return YES;

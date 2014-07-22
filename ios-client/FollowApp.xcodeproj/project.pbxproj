@@ -17,6 +17,7 @@
 		11BC438A197D755E005BE408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BC4383197D755E005BE408 /* ViewController.m */; };
 		11BC438B197D755E005BE408 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BC4386197D755E005BE408 /* SessionManager.m */; };
 		11BC438C197D755E005BE408 /* NSURL+explodeURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BC4389197D755E005BE408 /* NSURL+explodeURL.m */; };
+		11CAACAE197EAD7800BDC0F0 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CAACAD197EAD7800BDC0F0 /* APIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		11BC4386197D755E005BE408 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		11BC4388197D755E005BE408 /* NSURL+explodeURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+explodeURL.h"; sourceTree = "<group>"; };
 		11BC4389197D755E005BE408 /* NSURL+explodeURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+explodeURL.m"; sourceTree = "<group>"; };
+		11CAACAC197EAD7800BDC0F0 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		11CAACAD197EAD7800BDC0F0 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 			children = (
 				11BC4385197D755E005BE408 /* SessionManager.h */,
 				11BC4386197D755E005BE408 /* SessionManager.m */,
+				11CAACAC197EAD7800BDC0F0 /* APIClient.h */,
+				11CAACAD197EAD7800BDC0F0 /* APIClient.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11BC438A197D755E005BE408 /* ViewController.m in Sources */,
+				11CAACAE197EAD7800BDC0F0 /* APIClient.m in Sources */,
 				11BC438C197D755E005BE408 /* NSURL+explodeURL.m in Sources */,
 				1195321C197D6573005B0AE2 /* AppDelegate.m in Sources */,
 				11BC438B197D755E005BE408 /* SessionManager.m in Sources */,

@@ -11,6 +11,7 @@
 @interface SessionManager : NSObject
 
 @property (strong, nonatomic) NSString *login;
+@property (strong, nonatomic) NSString *followKey;
 
 + (instancetype)sharedSession;
 
