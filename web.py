@@ -59,9 +59,14 @@ app.secret_key = 'YouDontKnowMySecret'
 def redirect_to_app():
 	if 'login' in session:
 
+		if not request.headers.getlist("X-Forwarded-For"):
+			ip = request.remote_addr
+		else:
+			ip = request.headers.getlist("X-Forwarded-For")[0]
+
 		user = User.query.filter(User.login == session['login']).first()
 		user.follow_key = os.urandom(10).encode('hex')
-		user.follow_source_ip = request.remote_addr
+		user.follow_source_ip = ip
 
 		db.session.commit()
 
@@ -71,7 +76,12 @@ def redirect_to_app():
 @app.route('/getSession.json')
 def get_session():
 
-	results = User.query.filter(User.follow_key == request.args.get('follow_key'), User.follow_source_ip == request.remote_addr).all()
+	if not request.headers.getlist("X-Forwarded-For"):
+		ip = request.remote_addr
+	else:
+		ip = request.headers.getlist("X-Forwarded-For")[0]
+
+	results = User.query.filter(User.follow_key == request.args.get('follow_key'), User.follow_source_ip == ip).all()
 
 	if len(results) == 1:
 		user = results[0]
