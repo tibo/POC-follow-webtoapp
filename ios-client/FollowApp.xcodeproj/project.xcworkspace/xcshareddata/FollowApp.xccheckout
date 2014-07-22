@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F005E7C3-DC99-40BE-86A2-E604BC483A85</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FollowApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F9C768C0-0BAD-405D-8083-3D63577D16EE</key>
+		<string>ssh://github.com/tibo/POC-follow-webtoapp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios-client/FollowApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F9C768C0-0BAD-405D-8083-3D63577D16EE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/tibo/POC-follow-webtoapp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F9C768C0-0BAD-405D-8083-3D63577D16EE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F9C768C0-0BAD-405D-8083-3D63577D16EE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FollowWebToApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
